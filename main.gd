@@ -11,3 +11,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	position.x += speed * delta
+	
+	if position.x >= get_viewport_rect().size.x:
+		position.x = 0
