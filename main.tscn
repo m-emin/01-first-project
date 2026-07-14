@@ -1,10 +1,37 @@
 [gd_scene format=3 uid="uid://ccbur7cdj2yhu"]
 
-[ext_resource type="Script" uid="uid://bgyvof7hwymgt" path="res://main.gd" id="1_ig7tw"]
+[ext_resource type="Script" uid="uid://cmxrm6q7h2ppi" path="res://player.gd" id="1_0xm2m"]
 [ext_resource type="Texture2D" uid="uid://bo13hndfwugu7" path="res://icon.svg" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://bahfhwtegfwya" path="res://coin.gd" id="3_h2yge"]
 
-[node name="Node2D" type="Node2D" unique_id=1217474739]
-script = ExtResource("1_ig7tw")
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
+size = Vector2(128, 127)
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2102282165]
+[sub_resource type="CircleShape2D" id="CircleShape2D_ig7tw"]
+radius = 20.0
+
+[node name="Node2D" type="Node2D" unique_id=1879913246]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="." unique_id=313313546]
+script = ExtResource("1_0xm2m")
+
+[node name="Sprite2D" type="Sprite2D" parent="CharacterBody2D" unique_id=1292593995]
 texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D" unique_id=1389183929]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_7dm0k")
+
+[node name="Coin" type="Area2D" parent="." unique_id=1201729821]
+script = ExtResource("3_h2yge")
+
+[node name="Sprite2D" type="Sprite2D" parent="Coin" unique_id=1131062]
+position = Vector2(378, 102)
+scale = Vector2(0.375, 0.328125)
+texture = ExtResource("2_0xm2m")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin" unique_id=1127600977]
+position = Vector2(378, 102)
+shape = SubResource("CircleShape2D_ig7tw")
+
+[connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
