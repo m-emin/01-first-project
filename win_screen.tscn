@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c5tu6x0q1i6ky"]
+
+[node name="Control" type="Control" unique_id=1223331373]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="." unique_id=1582419406]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 161.0
+offset_right = 347.0
+offset_bottom = 184.0
+text = "YOU WIN!"
