@@ -1,5 +1,7 @@
 extends Node
 
+@export var win_screen: PackedScene = preload("res://game_state/win_screen.tscn")
+
 var score: int = 0
 var total_coins: int = 0
 
@@ -7,4 +9,4 @@ func add_point():
 	score += 1
 	print("Score is now: ", score)
 	if score >= total_coins:
-		get_tree().call_deferred("change_scene_to_file", "res://game_state/win_screen.tscn")
+		get_tree().call_deferred("change_scene_to_packed", win_screen)
