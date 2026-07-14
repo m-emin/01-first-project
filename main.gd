@@ -1,7 +1,7 @@
 extends Node2D
 
 # Global Variables
-var speed = 200
+@export var speed = 200
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,7 +10,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	position.x += speed * delta
 	
-	if position.x >= get_viewport_rect().size.x:
-		position.x = 0
+	var direction = Vector2.ZERO
+	
+	if Input.is_action_pressed("move_up"):
+		direction.y -= 1
+	if Input.is_action_pressed("move_down"):
+		direction.y += 1
+	if Input.is_action_pressed("move_right"):
+		direction.x += 1
+	if Input.is_action_pressed("move_left"):
+		direction.x -= 1
+	
+	direction = direction.normalized()
+	position += direction * speed * delta
