@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cmc6aijcvgss7"]
+
+[ext_resource type="Script" uid="uid://c0ota70i1uo8i" path="res://game_state/lose_screen.gd" id="1_n3a03"]
+
+[node name="Control" type="Control" unique_id=1223331373]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_n3a03")
+
+[node name="Label" type="Label" parent="." unique_id=1582419406]
+layout_mode = 0
+offset_left = 257.0
+offset_top = 163.0
+offset_right = 354.0
+offset_bottom = 186.0
+text = "GAME OVER!"
+
+[node name="Button" type="Button" parent="." unique_id=678329272]
+layout_mode = 0
+offset_left = 255.0
+offset_top = 193.0
+offset_right = 354.0
+offset_bottom = 224.0
+text = "Restart"
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

@@ -5,12 +5,13 @@
 [ext_resource type="Texture2D" uid="uid://bo13hndfwugu7" path="res://assets/icon.svg" id="3_4dugh"]
 [ext_resource type="Script" uid="uid://bahfhwtegfwya" path="res://game_elements/coin/coin.gd" id="4_3wy1v"]
 [ext_resource type="Script" uid="uid://cwjlt17317g2" path="res://ui/label.gd" id="5_grrlh"]
+[ext_resource type="Script" uid="uid://i7t48p24nj4c" path="res://main/trap.gd" id="5_kfbq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
 size = Vector2(128, 127)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ig7tw"]
-radius = 20.0
+radius = 15.0
 
 [node name="Node2D" type="Node2D" unique_id=1879913246]
 script = ExtResource("1_3wy1v")
@@ -38,16 +39,17 @@ texture = ExtResource("3_4dugh")
 position = Vector2(378, 102)
 shape = SubResource("CircleShape2D_ig7tw")
 
-[node name="Coin2" type="Area2D" parent="." unique_id=2103685634 groups=["coins"]]
-script = ExtResource("4_3wy1v")
+[node name="Trap" type="Area2D" parent="." unique_id=1778129186 groups=["traps"]]
+modulate = Color(1, 0, 0, 1)
+script = ExtResource("5_kfbq2")
 
-[node name="Sprite2D" type="Sprite2D" parent="Coin2" unique_id=1300692658]
-position = Vector2(457, 179)
-scale = Vector2(0.375, 0.328125)
+[node name="Sprite2D" type="Sprite2D" parent="Trap" unique_id=1482663321]
+position = Vector2(431.99997, 257)
+scale = Vector2(0.3085936, 0.25781238)
 texture = ExtResource("3_4dugh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Coin2" unique_id=45016136]
-position = Vector2(457, 179)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trap" unique_id=1724612948]
+position = Vector2(432, 258)
 shape = SubResource("CircleShape2D_ig7tw")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=815366070]
@@ -61,4 +63,4 @@ text = "Score: 0"
 script = ExtResource("5_grrlh")
 
 [connection signal="body_entered" from="Coin" to="Coin" method="_on_body_entered"]
-[connection signal="body_entered" from="Coin2" to="Coin2" method="_on_body_entered"]
+[connection signal="body_entered" from="Trap" to="Trap" method="_on_body_entered"]
