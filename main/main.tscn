@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://bo13hndfwugu7" path="res://assets/icon.svg" id="3_4dugh"]
 [ext_resource type="Script" uid="uid://bahfhwtegfwya" path="res://game_elements/coin/coin.gd" id="4_3wy1v"]
 [ext_resource type="Script" uid="uid://cwjlt17317g2" path="res://ui/label.gd" id="5_grrlh"]
-[ext_resource type="Script" uid="uid://i7t48p24nj4c" path="res://main/trap.gd" id="5_kfbq2"]
+[ext_resource type="Script" uid="uid://i7t48p24nj4c" path="res://game_elements/trap/trap.gd" id="5_kfbq2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7dm0k"]
 size = Vector2(128, 127)
